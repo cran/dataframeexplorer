@@ -1,0 +1,12 @@
+53dba3cca038056161dc9da02f987b4b *DESCRIPTION
+5fd539a49375a33abe84aaa6ce90146b *LICENSE
+9b4c8cdc0aed6ac8275fc1898687cf24 *NAMESPACE
+886149c9442ff1c227ec7d998edb9a51 *R/frequency_table.R
+880ad4b02bed1e7ff0c03b8e36e45b2e *R/glimpse.R
+6c9163ba8782bb5b9334831720c642bd *R/level_of_dataset.R
+3145299df6bd341417678d2814b7b2c6 *R/percentiles.R
+b4e8065b132f4facddc1528d570a0e65 *README.md
+597f086820229af7dcec79fee2ae5368 *man/frequency_table.Rd
+9b54b5ffefaee58e4a74bcc9af8563cc *man/glimpse_to_file.Rd
+02de58e1a82e4207a003d08574cd313c *man/level_of_data.Rd
+818111115eb6694b200d388346f566af *man/percentiles_table.Rd
