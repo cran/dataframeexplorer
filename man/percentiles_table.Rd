@@ -8,7 +8,6 @@ percentiles_table(
   dataset,
   output_filename = "",
   percentiles = c(0:10, seq(10, 90, 10), seq(25, 75, 25), 91:100),
-  columns_to_exclude = c(),
   format_width = TRUE,
   sd_required = TRUE,
   min_required = TRUE,
@@ -22,13 +21,9 @@ percentiles_table(
 \item{dataset}{A data.frame}
 
 \item{output_filename}{Name of the output excel file (should end in ".xlsx")
-Strongly advised to pass this parameter, else the function's default is "percentiles_table.xlsx"}
+Strongly advised to pass this parameter, else the function's default is "percentiles_table_<system_time>.xlsx"}
 
 \item{percentiles}{numeric vector of probabilities with values in [0,100]}
-
-\item{columns_to_exclude}{List of columns in input dataset for which frequencies need not be generated
-Pass a vector of columns for this parameter.
-For e.g. c("hp","mpg","carb")}
 
 \item{format_width}{Boolean input indicating if output excel cells' column width need to be formatted to "auto"}
 
@@ -44,13 +39,16 @@ For e.g. c("hp","mpg","carb")}
 
 \item{class_required}{Boolean input indicating if datatype column should be the last column in output excel}
 }
+\value{
+Does not return to calling function, writes to file system rather
+}
 \description{
-This function generates percentiles for each numeric columns.
+This function generates percentiles for all numeric columns in the dataframe.
 This will come handy while understanding the distribution of data and in outlier treatment.
 }
 \examples{
 \dontrun{
-percentiles_table(mtcars, output_filename = tempfile())
-percentiles_table(iris, output_filename = tempfile())
+percentiles_table(mtcars, output_filename = "percentiles_table_mtcars.xlsx")
+percentiles_table(iris, output_filename = "C/Users/Desktop/percentiles_table_iris.xlsx")
 }
 }

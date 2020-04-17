@@ -19,10 +19,20 @@ devtools::install_github("ashrithssreddy/dataframeexplorer")
 
 ## Next Steps
 ```
+Functions:
 ~~Percentiles~~
 ~~Level of dataset~~
 Univariate Analysis
 Bivariate Analysis
+
+Changes:
+~~Return value for all functions to be included into documentation~~
+~~Message not printed in all codes~~
+~~Default filename not consistent~~
+Outputs not refined
+Pep 8 formatting
+examples not consistent
+Comments not consistent across all codes
 ```
 
 ## Usage

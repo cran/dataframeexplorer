@@ -10,19 +10,19 @@ glimpse_to_file(dataset, output_filename = "")
 \item{dataset}{A data.frame object}
 
 \item{output_filename}{Name of the output text file (prefer to end in ".txt", although the backend will append if not)
-Strongly advised to pass this parameter, else the function's default is "glimpse_<system_time>.txt"
-Examples: "glimpse_mtcars.txt", "C/Users/Desktop/glimpse_iris.txt"}
+Function's default is "glimpse_<system_time>.txt"}
 }
 \value{
 Does not return any value, writes to disk rather
 }
 \description{
-Understanding the datsaet througha glimpse of it will come handy while data manipulation coding.
-This function generates the glimpse of data.frame using tibble::glimpse and write to a text file.
+Understanding the dataset through a glimpse of it will come handy while data manipulation coding.
+This function generates the glimpse of data.frame (similar to str()) using tibble::glimpse and write to a text file.
 Using same file name for different datasets will append the outputs to a same file.
 }
 \examples{
 \dontrun{
 glimpse_to_file(dataset = mtcars, output_filename = "glimpse_mtcars.txt")
+glimpse_to_file(dataset = iris, output_filename = "C/Users/Desktop/glimpse_iris.txt")
 }
 }

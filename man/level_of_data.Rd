@@ -2,31 +2,27 @@
 % Please edit documentation in R/level_of_dataset.R
 \name{level_of_data}
 \alias{level_of_data}
-\title{Determine the level / promary key of dataset}
+\title{Determine the level / primary key of dataset}
 \usage{
-level_of_data(dataset, output_filename = "", columns_to_exclude = c())
+level_of_data(dataset, output_filename = "")
 }
 \arguments{
 \item{dataset}{A data.frame}
 
-\item{output_filename}{Name of the output text file (should end in ".txt")
-Strongly advised to pass this parameter, else the function's default is "level_of_dataset_<timestamp>.txt"}
-
-\item{columns_to_exclude}{List of columns in input dataset to are not to be checked for level of dataset
-Pass a vector of columns for this parameter.
-For e.g. c("hp","mpg","carb")}
+\item{output_filename}{Name of the output text file (should end in ".txt", although the backend will append if not)
+Function's default is "level_of_dataset_<system_time>.txt"}
 }
 \value{
 Does not return to calling function, writes to file system rather
 }
 \description{
-A perfect documentation of a dataset in typically missing which includes information
-very crucial for data manipulation: The level of dataset. This function checks for count of
-unique records in all possible combination of columns to determine the level of dataset.
-Check for text file generated for column combinations with unique records
+Knowing the level of dataset is paramount to effectively and efficiently manipulate data, and the level of dataset is unknown oftentimes.
+This function checks for count of unique records in all possible column combinations to
+determine the level of dataset.
+Check for text file generated for column combinations with unique records.
 }
 \examples{
 \dontrun{
-level_of_data(dataset = mtcars[,c("mpg", "cyl", "disp", "hp")], output_filename = tempfile())
+level_of_data(dataset = iris[,c("mpg", "cyl", "disp", "hp")], output_filename = "level_mtcars.txt")
 }
 }

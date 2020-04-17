@@ -7,51 +7,48 @@
 frequency_table(
   dataset,
   output_filename = "",
-  columns_to_exclude = c(),
   maximum_entries = 2^20,
   format_width = TRUE,
-  Sl_No_required = TRUE,
-  Frequency_required = TRUE,
-  Percentage_required = TRUE,
-  Cumulative_Percentage_required = FALSE,
-  String_Length_required = TRUE,
-  Sl_No_to_last = FALSE
+  sl_no_required = TRUE,
+  frequency_required = TRUE,
+  percentage_required = TRUE,
+  cumulative_percentage_required = FALSE,
+  string_length_required = TRUE
 )
 }
 \arguments{
 \item{dataset}{A data.frame}
 
 \item{output_filename}{Name of the output text file (should end in ".xlsx")
-Strongly advised to pass this parameter, else the function's default is "frequency_table.xlsx"}
-
-\item{columns_to_exclude}{List of columns in input dataset for which frequencies need not be generated
-Pass a vector of columns for this parameter.
-For e.g. c("hp","mpg","carb")}
+Strongly advised to pass this parameter, else the function's default is "frequency_table_<system_time>.xlsx"}
 
 \item{maximum_entries}{Maximum unique entries in output.
 For e.g. setting this parameter to 10000 will return only top 10000 occurring entries in each column}
 
 \item{format_width}{Boolean input indicating if output excel cells' column width need to be formatted to "auto"}
 
-\item{Sl_No_required}{Boolean input indicating if Sl_No column needs to be present in output excel}
+\item{sl_no_required}{Boolean input indicating if Sl_No column needs to be present in output excel}
 
-\item{Frequency_required}{Boolean input indicating if Frequency column needs to be present in output excel}
+\item{frequency_required}{Boolean input indicating if Frequency column needs to be present in output excel}
 
-\item{Percentage_required}{Boolean input indicating if Percentage column needs to be present in output excel}
+\item{percentage_required}{Boolean input indicating if Percentage column needs to be present in output excel}
 
-\item{Cumulative_Percentage_required}{Boolean input indicating if Cumulative_Percentage column needs to be present in output excel}
+\item{cumulative_percentage_required}{Boolean input indicating if Cumulative_Percentage column needs to be present in output excel}
 
-\item{String_Length_required}{Boolean input indicating if String_Length column needs to be present in output excel}
-
-\item{Sl_No_to_last}{Boolean input indicating if Sl_No column should be the last column in output excel}
+\item{string_length_required}{Boolean input indicating if String_Length column needs to be present in output excel}
+}
+\value{
+Does not return to calling function, writes to file system rather
 }
 \description{
-Real-life data is rarely perfect and fields in a data.frame contains entries not anticipated.
-It helps to know your data (along with functions you use) before performing any manipulations on it.
-This function generates frequency table excel, each column of input dataframe in a separate sheet in output excel.
+Real-life data is seldom perfect and fields in a data.frame contains entries not anticipated by the data scientist.
+This function helps to know your data entries before performing any manipulations on it.
+This function generates frequency table excel, each column of input dataframe in a separate sheet in output excel file.
+Warning: An excel sheet can support 2^20 rows of data only (approx. 1 million). If the number of unique entries in a column exceeds that, excel will drop the low frequency entries.
 }
 \examples{
 \dontrun{
-frequency_table(dataset = mtcars, output_filename = tempfile())
+frequency_table(dataset = iris, output_filename = "frequency_table_iris.xlsx")
+frequency_table(dataset = mtcars, output_filename = "C/Users/Desktop/frequency_table_mtcars.xlsx")
 }
 }
