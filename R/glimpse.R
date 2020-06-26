@@ -20,7 +20,7 @@ glimpse_to_file <- function(dataset, output_filename = "") {
   # If the user did not pass output_filename parameter, function will generate and use "glimpse_<system_time>.txt"
   if (output_filename == "") {
     output_filename <- gsub(x = paste0("glimpse_", Sys.time(), ".txt"),
-                           pattern = " |:|-", replacement = "_")
+                            pattern = " |:|-", replacement = "_")
   }
 
   # If the output_filename does not end with ".txt", code to append ".txt"
@@ -30,18 +30,19 @@ glimpse_to_file <- function(dataset, output_filename = "") {
 
   # Printing the below message to console, especially handy when user does not pass output_filename parameter
   message("Writing glimpse of the dataset to ", output_filename)
+  message("Run closeAllConnections() if outputs are not being printed to console anymore!")
 
   # Ensures the glimpse output is written to output_filename text file and not to console
   sink(output_filename, type = c("output"), append = TRUE)
 
   # Generates and print class of the object, although it is expected to be a data.frame
-  print(paste0("Class: ", class(dataset), "\n"))
+  cat("Class:" , paste0(class(dataset), collapse = ", "), "\n")
 
   # Generates and writes the output of tibble::glimpse() to output_filename text file
   tibble::glimpse(dataset)
 
   # Blank line at the end of output
-  print("\n")
+  cat("\n")
 
   sink() # Unmounts output_filename text file
 

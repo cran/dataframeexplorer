@@ -47,14 +47,14 @@ level_of_data <- function(dataset, output_filename = "") {
 
       residual <- length(concatenated_combination) -  length(unique(concatenated_combination))
 
-      print(paste(column_combinations[j, ], collapse = " x "), "----", "residual:", format(residual, big.mark = ",", scientific = FALSE), "\n")
+      cat(paste(paste(column_combinations[j, ], collapse = " x "), "----", "residual:", format(residual, big.mark = ",", scientific = FALSE), "\n"))
 
       if (residual == 0) {
-        print(paste(paste(column_combinations[j, ], collapse = " x "), "is a level", "\n"))
+        cat(paste(paste(column_combinations[j, ], collapse = " x "), "is a level", "\n"))
       }else{
-        print(paste(paste(column_combinations[j, ], collapse = " x "), "is not a level", "\n"))
+        cat(paste(paste(column_combinations[j, ], collapse = " x "), "is not a level", "\n"))
       }
-      print("")
+      cat("")
       rm(concatenated_combination, residual); invisible(gc());
     }
   }
@@ -64,14 +64,20 @@ level_of_data <- function(dataset, output_filename = "") {
   dataset %>% names %>% paste(collapse = ", ") %>% paste0("\n") %>% message
 
   sink(output_filename, type = c("output"), append = TRUE)  # Ensures the glimpse output is written to output_filename text file
-  print(paste0(ncol(dataset), " columns present in dataframe passed to function:", "\n"))
-  dataset %>% names %>% paste(collapse = ", ") %>% paste0("\n\n") %>% print
+  cat(paste0(ncol(dataset), " columns present in dataframe passed to function:", "\n"))
+  dataset %>% names %>% paste(collapse = ", ") %>% paste0("\n") %>% cat
 
   for (i in seq_len(ncol(dataset))) {
-    print(paste0(i, " COLUMN COMBINATION(S) BELOW:", "\n\n"))
+    cat("\n")
+    cat(paste0(rep("#", 90), collapse = ""),"\n")
+    cat(paste0(i, " COLUMN COMBINATION(S) BELOW:", "\n"))
+    cat(paste0(rep("#", 90), collapse = ""),"\n")
     column_combinations <- generate_column_combinations(dataset, i)
     check_for_level(dataset, column_combinations)
     message(paste0(i, " column combination(s) checked for level at ", Sys.time()))
+    message(stringr::str_interp("Open a copy of ${output_filename} and search for 'is a level' pattern"))
+    message("To stop further checks, interrupt the code and run closeAllConnections()")
+    cat("\n")
   }
   sink()  # Unmounts output_filename text file
 

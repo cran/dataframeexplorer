@@ -18,7 +18,6 @@ devtools::install_github("ashrithssreddy/dataframeexplorer")
 ```
 
 ## Next Steps
-```
 Functions:
 ~~Percentiles~~
 ~~Level of dataset~~
@@ -33,7 +32,11 @@ Outputs not refined
 Pep 8 formatting
 examples not consistent
 Comments not consistent across all codes
-```
+sink() to be run in glimpse_to_file upon an error
+Arguement format to be used: dataset = dataset, output_filename = "dataset_glimpse.txt"
+Throw a warning when duplicate column names are found
+~~Level: Unsink when interrupted~~
+	~~Add instructions to interpretation of output~~
 
 ## Usage
 ```
