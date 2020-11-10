@@ -10,7 +10,7 @@ Functions in this package enable familiarity with the data.frame to further redu
 ## Installation
 ``` r
 # The easiest way to get dplyr is to install from GitHub:
-install.packages("dataframeexplorer")
+install.packages("dataframeexplorer", dependencies = T)
 
 # Alternatively, you can install development version:
 install.packages("devtools")
@@ -19,10 +19,12 @@ devtools::install_github("ashrithssreddy/dataframeexplorer")
 
 ## Next Steps
 Functions:
-~~Percentiles~~
-~~Level of dataset~~
+[x] Percentiles
+[x] Level of dataset
 Univariate Analysis
 Bivariate Analysis
+Show progress bar for level_of_dataset
+Run the level_of_dataset code in parallel for performance
 
 Changes:
 ~~Return value for all functions to be included into documentation~~
@@ -33,7 +35,7 @@ Pep 8 formatting
 examples not consistent
 Comments not consistent across all codes
 sink() to be run in glimpse_to_file upon an error
-Arguement format to be used: dataset = dataset, output_filename = "dataset_glimpse.txt"
+~~Arguement format to be used: dataset = dataset, output_filename = "dataset_glimpse.txt"~~
 Throw a warning when duplicate column names are found
 ~~Level: Unsink when interrupted~~
 	~~Add instructions to interpretation of output~~
