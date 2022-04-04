@@ -1,0 +1,19 @@
+########## Modeling data - data clean checks and preps ##########
+
+Meta Data
+	Duplicate column names
+	Clean column names: janitor::clean_names
+		Snake case
+		English characters, numbers and underscores only
+		Cannot start with digit
+	Duplicate row names
+	
+Data
+	Duplicate columns
+	Duplicate rows - throw a warning
+	Constant columns - zero variance or 1 unique value throughout
+		Identical Columns - Almost constant columns
+	
+
+
+########## Actual Data ##########
